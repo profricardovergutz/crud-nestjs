@@ -1,0 +1,17 @@
+meta {
+  name: Alterar
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{base_url}}/generos/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "   1     1 1 "
+  }
+}
