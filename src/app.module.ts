@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GenerosModule } from './generos/generos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { FilmesModule } from './filmes/filmes.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
     GenerosModule,
+    FilmesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

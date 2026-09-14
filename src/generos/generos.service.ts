@@ -44,11 +44,8 @@ export class GenerosService {
     return this.generoRepository.save(genero);
   }
 
-  async remove(id: number): Promise<Genero> {
+  async remove(id: number): Promise<void> {
     const genero = await this.findOne(id);
-    // remove() zera o id da instancia, entao guardamos uma copia para a resposta
-    const removido = { ...genero };
     await this.generoRepository.remove(genero);
-    return removido;
   }
 }
