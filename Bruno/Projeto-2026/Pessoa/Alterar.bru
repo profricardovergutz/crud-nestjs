@@ -1,0 +1,17 @@
+meta {
+  name: Alterar
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{base_url}}/pessoas/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "  Maria Silva Souza  "
+  }
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Alterar
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{base_url}}/filmes/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "  O Poderoso Chefão II  ",
+    "duracao": 202,
+    "generoId": 2
+  }
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Cadastrar
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/filmes
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "  O Poderoso Chefão  ",
+    "faixaEtaria": " 14 anos ",
+    "anoLancamento": 1972,
+    "sinopse": "O patriarca de uma família mafiosa transfere o controle ao filho.",
+    "duracao": 175,
+    "generoId": 1
+  }
+}

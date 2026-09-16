@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
+  ApiConflictResponse,
   ApiCreatedResponse,
   ApiNoContentResponse,
   ApiNotFoundResponse,
@@ -73,6 +74,7 @@ export class GenerosController {
   @ApiNoContentResponse({ description: 'Gênero removido' })
   @ApiBadRequestResponse({ description: 'id não é um número inteiro' })
   @ApiNotFoundResponse({ description: 'Gênero não encontrado' })
+  @ApiConflictResponse({ description: 'Gênero vinculado a filmes' })
   @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
   async remove(@Param('id', ParseIntPipe) id: number) {

@@ -1,6 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { Collection } from 'typeorm/driver/mongodb/typings.js';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Genero } from '../../generos/entities/genero.entity';
 
 @Entity('filmes')
 export class Filme {
@@ -32,4 +38,13 @@ export class Filme {
   @ApiProperty({ description: 'Duração em minutos', example: 175 })
   @Column()
   duracao: number;
+
+  @ApiProperty({ description: 'Id do gênero', example: 1 })
+  @Column({ name: 'genero_id', type: 'int' })
+  generoId: number;
+
+  @ApiProperty({ type: () => Genero })
+  @ManyToOne(() => Genero, { nullable: false, onDelete: 'RESTRICT' })
+  @JoinColumn({ name: 'genero_id' })
+  genero: Genero;
 }

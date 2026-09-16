@@ -54,4 +54,15 @@ export class CreateFilmeDto {
   @IsInt({ message: 'duracao deve ser um número inteiro' })
   @IsNotEmpty({ message: 'duracao é obrigatória' })
   duracao: number;
+
+  @ApiProperty({
+    description: 'Id do gênero do filme',
+    type: 'integer',
+    minimum: 1,
+    example: 1,
+  })
+  @IsPositive({ message: 'generoId deve ser maior que 0' })
+  @IsInt({ message: 'generoId deve ser um número inteiro' })
+  @IsNotEmpty({ message: 'generoId é obrigatório' })
+  generoId: number;
 }

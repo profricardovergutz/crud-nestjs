@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { GenerosService } from './generos.service';
 import { Genero } from './entities/genero.entity';
+import { Filme } from '../filmes/entities/filme.entity';
 
 describe('GenerosService', () => {
   let service: GenerosService;
@@ -15,11 +16,16 @@ describe('GenerosService', () => {
     remove: jest.fn(),
   };
 
+  const filmeRepository = {
+    existsBy: jest.fn(),
+  };
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         GenerosService,
         { provide: getRepositoryToken(Genero), useValue: generoRepository },
+        { provide: getRepositoryToken(Filme), useValue: filmeRepository },
       ],
     }).compile();
 

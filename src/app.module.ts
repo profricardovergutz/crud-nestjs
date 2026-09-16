@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { GenerosModule } from './generos/generos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FilmesModule } from './filmes/filmes.module';
+import { PessoasModule } from './pessoas/pessoas.module';
+import { TiposPessoasModule } from './tipos-pessoas/tipos-pessoas.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { FilmesModule } from './filmes/filmes.module';
     }),
     GenerosModule,
     FilmesModule,
+    PessoasModule,
+    TiposPessoasModule,
   ],
   controllers: [AppController],
   providers: [AppService],

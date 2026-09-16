@@ -1,0 +1,17 @@
+meta {
+  name: Cadastrar
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/pessoas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "  Maria Silva  "
+  }
+}

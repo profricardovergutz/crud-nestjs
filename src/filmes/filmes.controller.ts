@@ -33,6 +33,7 @@ export class FilmesController {
   @ApiOperation({ summary: 'Cadastra um filme' })
   @ApiCreatedResponse({ type: Filme })
   @ApiBadRequestResponse({ description: 'Dados inválidos' })
+  @ApiNotFoundResponse({ description: 'Gênero não encontrado' })
   @Post()
   create(@Body() createFilmeDto: CreateFilmeDto) {
     return this.filmesService.create(createFilmeDto);
@@ -59,7 +60,7 @@ export class FilmesController {
   @ApiParam({ name: 'id', type: Number, example: 1 })
   @ApiOkResponse({ type: Filme })
   @ApiBadRequestResponse({ description: 'Dados inválidos' })
-  @ApiNotFoundResponse({ description: 'Filme não encontrado' })
+  @ApiNotFoundResponse({ description: 'Filme ou gênero não encontrado' })
   @Patch(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
